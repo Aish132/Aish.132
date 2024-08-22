@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <script>
+        // JavaScript to display current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('time').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</head>
+
+<body class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-gray-900">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg">
+        <div class="container mx-auto p-6 text-center">
+            <div class="flex items-center justify-center space-x-6">
+                <img src="d:\New folder\DSC_0464.JPG" alt="Aishworya Devkota" class="rounded-full w-25 h-25 border-4 border-white">
+                <div>
+                    <h1 class="text-4xl font-extrabold tracking-wider">Aishworya Devkota</h1>
+                    <p class="text-xl mt-2">Web Developer | Design | BIT Student</p>
+                    <button onclick="alert('Hello!')" class="mt-4 inline-block bg-white text-blue-600 font-semibold py-2 px-4 rounded-full shadow hover:bg-gray-100 transition duration-300">
+                        Say Hello!
+                    </button>
+    
+                </div>
+            </div>
+            
+            <div class="mt-4 text-lg font-medium">
+                <p>Current Time: <span id="time"></span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
+        <h2 class="text-3xl font-bold mb-6 text-purple-700 border-b-2 border-purple-300 inline-block">About Me</h2>
+        <p class="leading-relaxed text-lg">
+            I am a passionate web developer with experience in creating responsive and user-friendly websites. My skills
+            include HTML, CSS, JavaScript, and popular frameworks like Tailwind CSS and Bootstrap. Additionally, I have
+            experience working with version control systems like Git, and I am proficient in building dynamic web applications
+            using React. I am always eager to learn new technologies and improve my skills, aiming to deliver high-quality
+            solutions that enhance user experience.
+        </p>
+    </section>
+
+    <!-- Education Section -->
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
+        <h2 class="text-3xl font-semibold mb-6 text-green-700 border-b-2 border-green-300 inline-block">
+            <i class="fas fa-graduation-cap mr-2"></i>Education</h2>
+        <ul class="space-y-4 text-lg text-gray-800">
+            <li>
+                <p class="font-medium">Secondary Education Examination (SEE)</p>
+                <p>KASES, 2020</p>
+            </li>
+            <li>
+                <p class="font-medium">High School (+2)</p>
+                <p>S.M College, Dillibazar</p>
+            </li>
+            <li>
+                <p class="font-medium">Bachelor of Information Technology</p>
+                <p>MIT, Bag Bazar, Kathmandu</p>
+                <p>Expected Graduation: 2027</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
+        <h2 class="text-3xl font-semibold mb-6 text-red-700 border-b-2 border-red-300 inline-block">
+            <i class="fas fa-heart mr-2"></i>Hobbies</h2>
+        <ul class="space-y-3 text-lg text-gray-800">
+            <li>🎬 Watching Movies and Dramas</li>
+            <li>📚 Reading Novels</li>
+            <li>✈ Travelling to New Places</li>
+        </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
+        <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b-2 border-blue-300 inline-block">Skills</h2>
+        <ul class="list-disc list-inside space-y-3 text-lg text-gray-800">
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>Tailwind CSS</li>
+            <li>Bootstrap</li>
+            <li>GitHub</li>
+        </ul>
+    </section>
+
+    <!-- Career Section -->
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
+        <h2 class="text-3xl font-bold mb-6 text-purple-700 border-b-2 border-purple-300 inline-block">Career</h2>
+        <div class="bg-red-100 p-6 rounded-lg shadow-inner">
+            <h3 class="font-bold text-2xl mb-2">Career Objectives</h3>
+            <p class="leading-relaxed text-lg">
+                To leverage my skills and passion in animation to create captivating content while exploring and experiencing
+                diverse cultures around the world.Aspiring Information Technology professional with a strong foundation in software development, network administration, and cybersecurity. Seeking an entry-level position where I can apply my technical skills, creativity, and problem-solving abilities to contribute to innovative IT solutions. Eager to gain hands-on experience in a dynamic environment while continuously learning and growing in the ever-evolving tech industry.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
+        <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b-2 border-blue-300 inline-block">Contact</h2>
+        <p class="text-lg">
+            If you would like to get in touch, please email me at
+            <a href="mailto:aishdevkota6@gmail.com" class="text-blue-600 hover:underline">aishdevkota6@gmail.com</a>.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-800 text-white p-6 mt-8 shadow-inner">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Aishworya Devkota | All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+
+</html>
