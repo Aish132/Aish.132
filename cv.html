@@ -6,7 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
+    <style>
+        /* Existing styles */
+        /* (Previous styles remain the same) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-pic {
+            transition: transform 0.9s ease-in-out, box-shadow 0.9s ease-in-out;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff0077, 0 0 20px #ff00b3, 0 0 30px #ff00ff;
+        }
+
+        .underline-animated::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100%;
+            height: 4px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.9s ease-out;
+        }
+
+        .underline-animated:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+    <script>
+        // Array of images and background colors
+        const images = [
+            "https://scontent.xx.fbcdn.net/v/t1.15752-9/455026847_1821864928343129_4243616040260469485_n.jpg?stp=dst-jpg_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dP2LpQbp1DwQ7kNvgGQk06x&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&cb_e2o_trans=t&oh=03_Q7cD1QEM0v3lLJVXBF0FWYfkci62vdmUDRjq-GLB-_m8t2LErw&oe=66EE6B93",
+            "https://scontent.xx.fbcdn.net/v/t1.15752-9/456576186_512152531223927_3943511274957279343_n.png?stp=dst-png_s206x206&_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_ohc=FtjZr6Fwi1YQ7kNvgFrF3ch&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&cb_e2o_trans=t&oh=03_Q7cD1QHVgauarANAW2-ImPFg1Op6LkmV__lqJNfx-ervHFI0wg&oe=66EE5078",
+            "https://scontent.xx.fbcdn.net/v/t1.15752-9/454860490_509794444937204_2732678401719156426_n.jpg?stp=dst-jpg_p75x225&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=bejwh0m7s4UQ7kNvgGj5yxH&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&cb_e2o_trans=t&oh=03_Q7cD1QEbiAI4GhVSn5JItkckoJUtmhn29HyV6G2BwIDb26JrHA&oe=66EE5F47",
+            "https://scontent.xx.fbcdn.net/v/t1.15752-9/455525275_1824944107994640_2007732922057079651_n.jpg?stp=dst-jpg_s206x206&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=mu1vr_crifgQ7kNvgH9tMDc&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&cb_e2o_trans=t&oh=03_Q7cD1QEdJ1Y-vQuEfsFqJ1civdmyDUPLAP2Zow4fGUXNLMamLA&oe=66EE604E"
+        ];
+
+        const bgColors = [
+            "bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100",
+            "bg-gradient-to-r from-yellow-100 via-green-100 to-blue-100",
+            "bg-gradient-to-r from-red-100 via-yellow-100 to-purple-100",
+            "bg-gradient-to-r from-blue-100 via-teal-100 to-pink-100"
+        ];
+
+        let currentIndex = 0;
+
+        // Function to change image and background color
+        function changeAppearance() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.querySelector('.profile-pic').src = images[currentIndex];
+            document.body.className = bgColors[currentIndex] + " text-gray-900";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Attach click event listener to the profile image
+            document.querySelector('.profile-pic').addEventListener('click', changeAppearance);
+
+            // Existing fade-in effect
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+    </script>
     <script>
         // JavaScript to display current time
         function updateTime() {
@@ -15,26 +104,41 @@
             document.getElementById('time').textContent = timeString;
         }
         setInterval(updateTime, 1000);
+
+        // JavaScript to trigger fade-in effect on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
     </script>
 </head>
 
-<body class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-gray-900">
+<body class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 text-gray-900">
 
     <!-- Header Section -->
-    <header class="bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg">
-        <div class="container mx-auto p-6 text-center">
+    <header class="bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg py-8">
+        <div class="container mx-auto text-center">
             <div class="flex items-center justify-center space-x-6">
-                <img src="d:\New folder\DSC_0464.JPG" alt="Aishworya Devkota" class="rounded-full w-25 h-25 border-4 border-white">
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/455026847_1821864928343129_4243616040260469485_n.jpg?stp=dst-jpg_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=dP2LpQbp1DwQ7kNvgGQk06x&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&cb_e2o_trans=t&oh=03_Q7cD1QEM0v3lLJVXBF0FWYfkci62vdmUDRjq-GLB-_m8t2LErw&oe=66EE6B93" alt="Aishworya Devkota" class="profile-pic rounded-full w-35 h-35 border-4 border-white cursor-pointer">
                 <div>
-                    <h1 class="text-4xl font-extrabold tracking-wider">Aishworya Devkota</h1>
+                    <h1 class="text-4xl font-extrabold tracking-wider animate-pulse text-shadow neon-text">Aishworya Devkota</h1>
                     <p class="text-xl mt-2">Web Developer | Design | BIT Student</p>
                     <button onclick="alert('Hello!')" class="mt-4 inline-block bg-white text-blue-600 font-semibold py-2 px-4 rounded-full shadow hover:bg-gray-100 transition duration-300">
                         Say Hello!
                     </button>
-    
                 </div>
             </div>
-            
+
             <div class="mt-4 text-lg font-medium">
                 <p>Current Time: <span id="time"></span></p>
             </div>
@@ -42,8 +146,8 @@
     </header>
 
     <!-- About Section -->
-    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
-        <h2 class="text-3xl font-bold mb-6 text-purple-700 border-b-2 border-purple-300 inline-block">About Me</h2>
+    <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2 fade-in">
+        <h2 class="text-3xl font-bold mb-6 text-purple-700 underline-animated">About Me</h2>
         <p class="leading-relaxed text-lg">
             I am a passionate web developer with experience in creating responsive and user-friendly websites. My skills
             include HTML, CSS, JavaScript, and popular frameworks like Tailwind CSS and Bootstrap. Additionally, I have
@@ -53,9 +157,10 @@
         </p>
     </section>
 
+
     <!-- Education Section -->
     <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
-        <h2 class="text-3xl font-semibold mb-6 text-green-700 border-b-2 border-green-300 inline-block">
+        <h2 class="text-3xl font-semibold mb-6 text-green-700 border-b-2 border-green-300 inline-block underline-animated">
             <i class="fas fa-graduation-cap mr-2"></i>Education</h2>
         <ul class="space-y-4 text-lg text-gray-800">
             <li>
@@ -76,31 +181,32 @@
 
     <!-- Hobbies Section -->
     <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
-        <h2 class="text-3xl font-semibold mb-6 text-red-700 border-b-2 border-red-300 inline-block">
+        <h2 class="text-3xl font-semibold mb-6 text-red-700 border-b-2 border-red-300 inline-block underline-animated">
             <i class="fas fa-heart mr-2"></i>Hobbies</h2>
         <ul class="space-y-3 text-lg text-gray-800">
             <li>🎬 Watching Movies and Dramas</li>
             <li>📚 Reading Novels</li>
-            <li>✈ Travelling to New Places</li>
+            <li>✈ Travelling to New Places and Exploring Natures</li>
         </ul>
     </section>
 
     <!-- Skills Section -->
     <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
-        <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b-2 border-blue-300 inline-block">Skills</h2>
+        <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b-2 border-blue-300 inline-block underline-animated">Skills</h2>
         <ul class="list-disc list-inside space-y-3 text-lg text-gray-800">
             <li>HTML & CSS</li>
             <li>JavaScript</li>
             <li>Tailwind CSS</li>
             <li>Bootstrap</li>
             <li>GitHub</li>
+            <li>Photoshop</li>
         </ul>
     </section>
 
     <!-- Career Section -->
     <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
-        <h2 class="text-3xl font-bold mb-6 text-purple-700 border-b-2 border-purple-300 inline-block">Career</h2>
-        <div class="bg-red-100 p-6 rounded-lg shadow-inner">
+        <h2 class="text-3xl font-bold mb-6 text-purple-700 border-b-2 border-purple-300 inline-block underline-animated">Career</h2>
+        <div class="bg-indigo-100 p-6 rounded-lg shadow-inner">
             <h3 class="font-bold text-2xl mb-2">Career Objectives</h3>
             <p class="leading-relaxed text-lg">
                 To leverage my skills and passion in animation to create captivating content while exploring and experiencing
@@ -111,11 +217,15 @@
 
     <!-- Contact Section -->
     <section class="container mx-auto p-8 mt-8 bg-white shadow-2xl rounded-lg transform transition hover:-translate-y-2">
-        <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b-2 border-blue-300 inline-block">Contact</h2>
+        <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b-2 border-blue-300 inline-block underline-animated">Contact</h2>
         <p class="text-lg">
             If you would like to get in touch, please email me at
-            <a href="mailto:aishdevkota6@gmail.com" class="text-blue-600 hover:underline">aishdevkota6@gmail.com</a>.
+            <a href="mailto:aishdevkota6@gmail.com" class="text-blue-600 hover:underline">aishdevkota6@gmail.com</a> 
+            for more detail:
         </p>
+        <button class="mt-4 btn-animated bg-blue-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-600 transition" onclick="window.location.href='contact.html'">
+            Let's Connect!
+        </button>
     </section>
 
     <!-- Footer -->
