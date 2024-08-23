@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="boxsheet">
+    <style>
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Slides */
+        .mySlides {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeInSlide 1.5s ease-in-out forwards;
+        }
+
+        .mySlides img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            user-select: none;
+        }
+
+        .prev {
+            left: -10px;
+        }
+
+        .next {
+            right: -10px;
+        }
+
+        /* Button hover effects */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Slide text */
+        .text {
+            color: #444;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 8px 12px;
+            transition: color 0.3s ease;
+        }
+
+        .text a:hover {
+            color: #d946ef;
+        }
+
+        /* Background gradient animation */
+        body {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Slide fade-in animation */
+        @keyframes fadeInSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slideshow container fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .header p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-top: 10px;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+            color: #f0f0f0;
+        }
+
+        .intro-section p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Skill Icons Section */
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skills img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Social Media Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #d946ef;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900">
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Aishworya Devkota</h1>
+        <p>Web Developer & Designer</p>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="intro-section">
+        <p>Welcome to my contact page! I’m a passionate web developer with a keen interest in crafting visually stunning and responsive websites. Here, you can find all the ways to reach out to me. Feel free to connect!</p>
+    </div>
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container mt-10">
+
+        <!-- Slide 1: Phone Number -->
+        <div class="mySlides fade">
+            <img src="https://www.pngitem.com/pimgs/m/9-96975_side-point-telephone-phone-icon-round-png-transparent.png" alt="Phone Icon">
+            <p class="text">📞 Phone: 9849095353</p>
+        </div>
+
+        <!-- Slide 2: Email -->
+        <div class="mySlides fade">
+            <img src="https://w7.pngwing.com/pngs/17/643/png-transparent-iphone-computer-icons-email-email-miscellaneous-blue-angle-thumbnail.png" alt="Email Icon">
+            <p class="text">✉ Email: aishdevkota6@gmail.com</p>
+        </div>
+
+        <!-- Slide 3: LinkedIn -->
+        <div class="mySlides fade">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn Icon">
+            <p class="text">🔗 LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" class="text-blue-600 hover:underline">https://www.linkedin.com/feed/</a></p>
+        </div>
+
+        <!-- Slide 4: Twitter -->
+        <div class="mySlides fade">
+            <img src="https://w7.pngwing.com/pngs/515/1/png-transparent-twitter-logo-computer-icons-logo-twitter-icon-computer-wallpaper-monochrome-bird-thumbnail.png" alt="Twitter Icon">
+            <p class="text">🐦 Twitter: <a href="https://x.com/AishworyaD17045" class="text-blue-600 hover:underline">https://x.com/AishworyaD17045</a></p>
+        </div>
+
+        <!-- Next/previous controls -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript Icon">
+    </div>
+
+    <!-- Footer with Social Media Links -->
+    <div class="footer">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">🔗</a>
+        <a href="https://twitter.com/yourprofile" target="_blank">🐦</a>
+        <a href="https://github.com/yourprofile" target="_blank">💻</a>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.querySelectorAll('.mySlides');
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[slideIndex].style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
